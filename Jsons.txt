@@ -1,0 +1,22 @@
+{
+  "nome": "Usuario3",
+  "email": "usuariO3@example.com",
+  "senha": "senhaSegura123"
+}
+
+{
+  "email": "usuariO3@example.com",
+  "password": "senhaSegura123"
+}
+
+{
+  "cidade": "São Paulo",
+  "temperatura": 29.5,
+  "texto": "Evite sair entre 12h e 15h. Mantenha-se hidratado!"
+}
+
+{
+  "cidade": "São Paulo",
+  "temperatura": 29.5,
+  "texto": "Está muito calor nas ruas! Fique em áreas com ar condicionado."
+}
