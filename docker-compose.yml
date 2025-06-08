@@ -1,0 +1,36 @@
+version: '3.9'
+
+services:
+  oracle-db:
+    build: ./oracle-db
+    container_name: oracle-container
+    environment:
+      - ORACLE_PASSWORD=170805
+      - APP_USER=rm556242
+      - APP_USER_PASSWORD=170805
+    ports:
+      - "1521:1521"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+    networks:
+      - mynetwork
+
+  app:
+    build: ./app
+    container_name: app-container
+    depends_on:
+      - oracle-db
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:oracle:thin:@oracle-db:1521/XEPDB1
+      - SPRING_DATASOURCE_USERNAME=rm556242
+      - SPRING_DATASOURCE_PASSWORD=170805
+    networks:
+      - mynetwork
+
+volumes:
+  oracle_data:
+
+networks:
+  mynetwork:
